@@ -1,36 +1,60 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+⌚ Titan Ceramic Fusion – Immersive Luxury Watch Experience
 
-## Getting Started
+A cinematic, high-performance scrollytelling product experience crafted for the Titan Ceramic Fusion watch.
+This project blends storytelling, motion design, and premium UI aesthetics to create a next-gen luxury landing page.
 
-First, run the development server:
+✨ Experience Highlights
+🌌 Cinematic Scrollytelling
 
-```bash
+Frame-by-frame scroll animation for storytelling
+
+Smooth transitions revealing product details progressively
+
+Apple-inspired immersive storytelling flow
+
+💎 Luxury UI & Motion Design
+
+Premium dark theme with glow effects & glassmorphism
+
+Micro-interactions for high-end feel
+
+Clean typography with strong visual hierarchy
+
+🛍️ Product-Centric Interaction
+
+Scroll-based product reveal & transformation
+
+Focused sections for features, specs, and highlights
+
+Conversion-oriented layout with strong visual storytelling
+
+⚙️ Engineering Excellence
+
+High-performance scroll engine
+
+Optimized image loading & rendering
+
+Fully responsive across all devices
+
+🧰 Tech Stack
+
+Next.js (React)
+
+Tailwind CSS
+
+Framer Motion
+
+Vercel Deployment
+
+🎯 Vision
+
+To transform a simple product page into a luxury digital experience
+that engages, excites, and converts users through storytelling.
+
+🚀 Live Demo
+
+👉 https://titan-watch-landing-page.vercel.app/
+
+▶️ Run Locally
+npm install
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
-
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
-
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
-
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
-
-## Learn More
-
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
