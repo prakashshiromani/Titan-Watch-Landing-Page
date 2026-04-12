@@ -12,17 +12,29 @@ export default function Home() {
 
         {/* ── HERO / INTRO (0–15%) ── */}
         <Storybeat range={[0, 0.05, 0.12, 0.15]} position="center">
-          <p className="text-[9px] sm:text-[10px] font-semibold uppercase tracking-[0.4em] text-luxury-gold mb-3 sm:mb-5 flex items-center justify-center gap-3">
+          <p className="text-[9px] sm:text-[10px] font-semibold uppercase tracking-[0.5em] text-luxury-gold mb-3 sm:mb-5 flex items-center justify-center gap-3">
             <span className="inline-block w-6 sm:w-8 h-px bg-luxury-gold/60" />
             Titan Automatic
             <span className="inline-block w-6 sm:w-8 h-px bg-luxury-gold/60" />
           </p>
-          <h1 className="text-3xl sm:text-4xl md:text-6xl font-bold tracking-tighter text-white mb-3 sm:mb-5 leading-[1.05]">
-            Titan Ceramic<br />Fusion
+
+          {/* Hero headline — Plus Jakarta Sans bold */}
+          <h1
+            className="text-4xl sm:text-5xl md:text-7xl font-extrabold tracking-tighter text-white mb-3 sm:mb-5 leading-[1.0]"
+            style={{ fontFamily: "var(--font-plus-jakarta)" }}
+          >
+            Titan Ceramic<br />
+            <span className="text-gold-shimmer">Fusion</span>
           </h1>
-          <p className="text-luxury-gold/80 text-xs sm:text-sm md:text-base tracking-widest uppercase mb-3 sm:mb-5 font-medium">
+
+          {/* Sub-caption — Cormorant Garamond italic for elegance */}
+          <p
+            className="text-luxury-gold/80 text-base sm:text-lg md:text-xl tracking-wide mb-3 sm:mb-5"
+            style={{ fontFamily: "var(--font-cormorant)", fontStyle: "italic", fontWeight: 400 }}
+          >
             Where engineering meets elegance.
           </p>
+
           <p className="text-white/50 text-sm sm:text-base md:text-lg font-light leading-relaxed">
             A bold expression of precision, crafted for those<br className="hidden md:block" /> who value timeless design.
           </p>
@@ -30,11 +42,14 @@ export default function Home() {
 
         {/* ── ENGINEERING REVEAL (18–40%) ── */}
         <Storybeat range={[0.18, 0.22, 0.35, 0.40]} position="left">
-          <p className="text-[9px] sm:text-[10px] font-semibold uppercase tracking-[0.4em] text-luxury-gold/70 mb-3 sm:mb-4 flex items-center gap-3">
+          <p className="text-[9px] sm:text-[10px] font-semibold uppercase tracking-[0.5em] text-luxury-gold/70 mb-3 sm:mb-4 flex items-center gap-3">
             <span className="inline-block w-5 sm:w-6 h-px bg-luxury-gold/50" />
             Engineering
           </p>
-          <h2 className="text-2xl sm:text-3xl md:text-5xl font-bold tracking-tighter text-white mb-3 sm:mb-5 leading-[1.1]">
+          <h2
+            className="text-3xl sm:text-4xl md:text-6xl font-bold tracking-tighter text-white mb-3 sm:mb-5 leading-[1.05]"
+            style={{ fontFamily: "var(--font-plus-jakarta)" }}
+          >
             Crafted with<br />
             <span className="text-luxury-gold">mechanical precision.</span>
           </h2>
@@ -52,11 +67,14 @@ export default function Home() {
 
         {/* ── AUTOMATIC MOVEMENT (42–65%) ── */}
         <Storybeat range={[0.42, 0.48, 0.60, 0.65]} position="right">
-          <p className="text-[9px] sm:text-[10px] font-semibold uppercase tracking-[0.4em] text-luxury-gold/70 mb-3 sm:mb-4 flex items-center justify-end gap-3">
+          <p className="text-[9px] sm:text-[10px] font-semibold uppercase tracking-[0.5em] text-luxury-gold/70 mb-3 sm:mb-4 flex items-center justify-end gap-3">
             Movement
             <span className="inline-block w-5 sm:w-6 h-px bg-luxury-gold/50" />
           </p>
-          <h2 className="text-2xl sm:text-3xl md:text-5xl font-bold tracking-tighter text-white mb-3 sm:mb-5 leading-[1.1]">
+          <h2
+            className="text-3xl sm:text-4xl md:text-6xl font-bold tracking-tighter text-white mb-3 sm:mb-5 leading-[1.05]"
+            style={{ fontFamily: "var(--font-plus-jakarta)" }}
+          >
             Powered<br />
             <span className="text-luxury-gold">by motion.</span>
           </h2>
@@ -76,11 +94,14 @@ export default function Home() {
 
         {/* ── SKELETON DESIGN (68–85%) ── */}
         <Storybeat range={[0.68, 0.72, 0.82, 0.85]} position="left">
-          <p className="text-[9px] sm:text-[10px] font-semibold uppercase tracking-[0.4em] text-luxury-gold/70 mb-3 sm:mb-4 flex items-center gap-3">
+          <p className="text-[9px] sm:text-[10px] font-semibold uppercase tracking-[0.5em] text-luxury-gold/70 mb-3 sm:mb-4 flex items-center gap-3">
             <span className="inline-block w-5 sm:w-6 h-px bg-luxury-gold/50" />
             Design Language
           </p>
-          <h2 className="text-2xl sm:text-3xl md:text-5xl font-bold tracking-tighter text-white mb-3 sm:mb-5 leading-[1.1]">
+          <h2
+            className="text-3xl sm:text-4xl md:text-6xl font-bold tracking-tighter text-white mb-3 sm:mb-5 leading-[1.05]"
+            style={{ fontFamily: "var(--font-plus-jakarta)" }}
+          >
             Design that<br />
             <span className="text-luxury-gold">reveals its soul.</span>
           </h2>
@@ -115,13 +136,23 @@ export default function Home() {
           <span className="inline-block w-5 sm:w-8 h-px bg-luxury-gold/40" />
         </p>
 
-        {/* Headline */}
-        <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold tracking-tighter text-white mb-4 sm:mb-5 leading-[0.95]">
-          Timeless. Powerful. Distinct.
+        {/* Headline — Plus Jakarta Sans */}
+        <h2
+          className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-extrabold tracking-tighter text-white mb-3 sm:mb-4 leading-[0.92]"
+          style={{ fontFamily: "var(--font-plus-jakarta)" }}
+        >
+          Timeless.{" "}
+          <span
+            style={{ fontFamily: "var(--font-cormorant)", fontStyle: "italic", fontWeight: 400, letterSpacing: "0.02em" }}
+            className="text-luxury-gold/90"
+          >
+            Powerful.
+          </span>{" "}
+          Distinct.
         </h2>
 
         {/* Sub-copy */}
-        <p className="text-white/40 text-xs sm:text-sm font-light tracking-[0.2em] uppercase mb-8 sm:mb-12 max-w-lg px-2">
+        <p className="text-white/40 text-xs sm:text-sm font-light tracking-[0.2em] uppercase mb-8 sm:mb-12 max-w-lg px-2 mt-4">
           Titan Automatic — engineered to move with you.
         </p>
 
@@ -131,6 +162,7 @@ export default function Home() {
             href="/buy"
             className="flex items-center justify-center py-4 px-8 rounded-full font-bold uppercase tracking-[0.2em] text-xs text-black transition-all duration-300 transform hover:-translate-y-1 hover:scale-105 cursor-pointer"
             style={{
+              fontFamily: "var(--font-plus-jakarta)",
               background: "linear-gradient(135deg, #C8A96A 0%, #E2C98E 50%, #C8A96A 100%)",
               boxShadow: "0 4px 20px rgba(200,169,106,0.4), inset 0 1px 0 rgba(255,255,255,0.2)",
             }}
@@ -141,6 +173,7 @@ export default function Home() {
             href="/specs"
             className="flex items-center justify-center py-4 px-8 rounded-full font-bold uppercase tracking-[0.2em] text-xs text-white/70 hover:text-white transition-all duration-300 transform hover:-translate-y-1 hover:scale-105 cursor-pointer"
             style={{
+              fontFamily: "var(--font-plus-jakarta)",
               background: "rgba(255,255,255,0.04)",
               border: "1px solid rgba(255,255,255,0.12)",
               backdropFilter: "blur(8px)",
