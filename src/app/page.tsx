@@ -12,7 +12,7 @@ export default function Home() {
 
         {/* ── HERO / INTRO (0–15%) ── */}
         <Storybeat range={[0, 0.05, 0.12, 0.15]} position="center">
-          <p className="text-[9px] sm:text-[10px] font-semibold uppercase tracking-[0.5em] text-luxury-gold mb-3 sm:mb-5 flex items-center justify-center gap-3">
+          <p className="text-[9px] sm:text-[10px] font-semibold uppercase tracking-[0.5em] text-luxury-gold mb-3 sm:mb-5 flex items-center justify-center gap-3 text-soft-fade">
             <span className="inline-block w-6 sm:w-8 h-px bg-luxury-gold/60" />
             Titan Automatic
             <span className="inline-block w-6 sm:w-8 h-px bg-luxury-gold/60" />
@@ -24,25 +24,25 @@ export default function Home() {
             style={{ fontFamily: "var(--font-plus-jakarta)" }}
           >
             Titan Ceramic<br />
-            <span className="text-gold-shimmer">Fusion</span>
+            <span className="text-gold-shimmer text-glow-pulse">Fusion</span>
           </h1>
 
           {/* Sub-caption — Cormorant Garamond italic for elegance */}
           <p
-            className="text-luxury-gold/80 text-base sm:text-lg md:text-xl tracking-wide mb-3 sm:mb-5"
+            className="text-luxury-gold/95 text-base sm:text-lg md:text-xl tracking-wide mb-3 sm:mb-5"
             style={{ fontFamily: "var(--font-cormorant)", fontStyle: "italic", fontWeight: 400 }}
           >
             Where engineering meets elegance.
           </p>
 
-          <p className="text-white/50 text-sm sm:text-base md:text-lg font-light leading-relaxed">
+          <p className="text-white/90 text-sm sm:text-base md:text-lg font-light leading-relaxed">
             A bold expression of precision, crafted for those<br className="hidden md:block" /> who value timeless design.
           </p>
         </Storybeat>
 
         {/* ── ENGINEERING REVEAL (18–40%) ── */}
         <Storybeat range={[0.18, 0.22, 0.35, 0.40]} position="left">
-          <p className="text-[9px] sm:text-[10px] font-semibold uppercase tracking-[0.5em] text-luxury-gold/70 mb-3 sm:mb-4 flex items-center gap-3">
+          <p className="text-[9px] sm:text-[10px] font-semibold uppercase tracking-[0.5em] text-luxury-gold/70 mb-3 sm:mb-4 flex items-center gap-3 text-soft-fade">
             <span className="inline-block w-5 sm:w-6 h-px bg-luxury-gold/50" />
             Engineering
           </p>
@@ -51,23 +51,23 @@ export default function Home() {
             style={{ fontFamily: "var(--font-plus-jakarta)" }}
           >
             Crafted with<br />
-            <span className="text-luxury-gold">mechanical precision.</span>
+            <span className="text-luxury-gold text-glow-pulse">mechanical precision.</span>
           </h2>
-          <div className="space-y-2 sm:space-y-3">
+          <div className="storybeat-bullets space-y-2 sm:space-y-3">
             <div className="flex items-start gap-3">
               <span className="mt-1.5 flex-shrink-0 w-1 h-1 rounded-full bg-luxury-gold" />
-              <p className="text-white/60 text-sm sm:text-base leading-relaxed">An automatic movement powered purely by motion.</p>
+              <p className="text-white/80 text-sm sm:text-base leading-relaxed">An automatic movement powered purely by motion.</p>
             </div>
             <div className="flex items-start gap-3">
               <span className="mt-1.5 flex-shrink-0 w-1 h-1 rounded-full bg-luxury-gold" />
-              <p className="text-white/60 text-sm sm:text-base leading-relaxed">Every component engineered for accuracy and longevity.</p>
+              <p className="text-white/80 text-sm sm:text-base leading-relaxed">Every component engineered for accuracy and longevity.</p>
             </div>
           </div>
         </Storybeat>
 
         {/* ── AUTOMATIC MOVEMENT (42–65%) ── */}
         <Storybeat range={[0.42, 0.48, 0.60, 0.65]} position="right">
-          <p className="text-[9px] sm:text-[10px] font-semibold uppercase tracking-[0.5em] text-luxury-gold/70 mb-3 sm:mb-4 flex items-center justify-end gap-3">
+          <p className="text-[9px] sm:text-[10px] font-semibold uppercase tracking-[0.5em] text-luxury-gold/70 mb-3 sm:mb-4 flex items-center justify-end gap-3 text-soft-fade">
             Movement
             <span className="inline-block w-5 sm:w-6 h-px bg-luxury-gold/50" />
           </p>
@@ -76,15 +76,15 @@ export default function Home() {
             style={{ fontFamily: "var(--font-plus-jakarta)" }}
           >
             Powered<br />
-            <span className="text-luxury-gold">by motion.</span>
+            <span className="text-luxury-gold text-glow-pulse">by motion.</span>
           </h2>
-          <ul className="space-y-2 sm:space-y-3">
+          <ul className="storybeat-bullets space-y-2 sm:space-y-3">
             {[
               "Self-winding automatic mechanism",
               "Precision-calibrated gear system",
               "No battery. Pure craftsmanship.",
             ].map((item) => (
-              <li key={item} className="flex items-center justify-end gap-3 text-white/60 text-sm sm:text-base">
+              <li key={item} className="flex items-center justify-end gap-3 text-white/80 text-sm sm:text-base">
                 <span>{item}</span>
                 <span className="flex-shrink-0 w-1 h-1 rounded-full bg-luxury-gold" />
               </li>
@@ -94,7 +94,7 @@ export default function Home() {
 
         {/* ── SKELETON DESIGN (68–85%) ── */}
         <Storybeat range={[0.68, 0.72, 0.82, 0.85]} position="left">
-          <p className="text-[9px] sm:text-[10px] font-semibold uppercase tracking-[0.5em] text-luxury-gold/70 mb-3 sm:mb-4 flex items-center gap-3">
+          <p className="text-[9px] sm:text-[10px] font-semibold uppercase tracking-[0.5em] text-luxury-gold/70 mb-3 sm:mb-4 flex items-center gap-3 text-soft-fade">
             <span className="inline-block w-5 sm:w-6 h-px bg-luxury-gold/50" />
             Design Language
           </p>
@@ -103,9 +103,9 @@ export default function Home() {
             style={{ fontFamily: "var(--font-plus-jakarta)" }}
           >
             Design that<br />
-            <span className="text-luxury-gold">reveals its soul.</span>
+            <span className="text-luxury-gold text-glow-pulse">reveals its soul.</span>
           </h2>
-          <div className="space-y-2 sm:space-y-3">
+          <div className="storybeat-bullets space-y-2 sm:space-y-3">
             {[
               "Skeleton dial showcasing intricate mechanics.",
               "Ceramic fusion for strength and elegance.",
@@ -113,7 +113,7 @@ export default function Home() {
             ].map((item) => (
               <div key={item} className="flex items-start gap-3">
                 <span className="mt-1.5 flex-shrink-0 w-1 h-1 rounded-full bg-luxury-gold" />
-                <p className="text-white/60 text-sm sm:text-base leading-relaxed">{item}</p>
+                <p className="text-white/80 text-sm sm:text-base leading-relaxed">{item}</p>
               </div>
             ))}
           </div>
@@ -130,7 +130,7 @@ export default function Home() {
         </div>
 
         {/* Eyebrow */}
-        <p className="text-[9px] font-semibold uppercase tracking-[0.5em] text-luxury-gold/70 mb-5 sm:mb-6 flex items-center gap-3 sm:gap-4">
+        <p className="text-[9px] font-semibold uppercase tracking-[0.5em] text-luxury-gold/70 mb-5 sm:mb-6 flex items-center gap-3 sm:gap-4 text-soft-fade">
           <span className="inline-block w-5 sm:w-8 h-px bg-luxury-gold/40" />
           Titan Automatic Collection
           <span className="inline-block w-5 sm:w-8 h-px bg-luxury-gold/40" />
@@ -144,7 +144,7 @@ export default function Home() {
           Timeless.{" "}
           <span
             style={{ fontFamily: "var(--font-cormorant)", fontStyle: "italic", fontWeight: 400, letterSpacing: "0.02em" }}
-            className="text-luxury-gold/90"
+            className="text-luxury-gold/90 text-glow-pulse"
           >
             Powerful.
           </span>{" "}

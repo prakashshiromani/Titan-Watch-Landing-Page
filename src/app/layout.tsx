@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Inter, Plus_Jakarta_Sans, Cormorant_Garamond } from "next/font/google";
 import "./globals.css";
 import Navbar from "@/components/Navbar";
+import SplashCursor from "@/components/SplashCursor";
 
 const inter = Inter({
   variable: "--font-inter",
@@ -38,6 +39,7 @@ export default function RootLayout({
   return (
     <html lang="en" className="dark scroll-smooth" suppressHydrationWarning>
       <body className={`${inter.variable} ${plusJakarta.variable} ${cormorant.variable} bg-luxury-bg text-white antialiased`} suppressHydrationWarning>
+        <SplashCursor />
         <Navbar />
         {children}
       </body>
