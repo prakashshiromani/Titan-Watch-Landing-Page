@@ -12,10 +12,10 @@ import { usePathname } from "next/navigation";
 import { cn } from "@/lib/utils";
 
 const navLinks = [
-    { name: "Overview", href: "#overview", num: "01" },
-    { name: "Design",   href: "/design",   num: "02" },
-    { name: "Specs",    href: "/specs",    num: "03" },
-    { name: "Collection", href: "/specs",  num: "04" },
+    { name: "Overview", href: "#overview" },
+    { name: "Design",   href: "/design" },
+    { name: "Specs",    href: "/specs" },
+    { name: "Collection", href: "/specs" },
 ];
 
 /* ── Individual nav link with gold sweep hover ── */
@@ -25,25 +25,13 @@ function NavLink({ link }: { link: typeof navLinks[number] }) {
     return (
         <Link
             href={link.href}
-            className="relative flex flex-col items-center gap-0.5 group"
+            className="relative flex flex-col items-center group"
             onMouseEnter={() => setHovered(true)}
             onMouseLeave={() => setHovered(false)}
         >
-            {/* Index number */}
-            <span
-                className="text-[13px] tracking-[0.25em] transition-all duration-300"
-                style={{
-                    fontFamily: "var(--font-cormorant)",
-                    color: hovered ? "rgba(200,169,106,0.7)" : "rgba(255,255,255,0.2)",
-                    fontStyle: "italic",
-                }}
-            >
-                {link.num}
-            </span>
-
             {/* Label */}
             <span
-                className="text-[18px] font-bold uppercase tracking-[0.15em] transition-all duration-300"
+                className="text-[12px] font-bold uppercase tracking-[0.15em] transition-all duration-300"
                 style={{
                     fontFamily: "var(--font-plus-jakarta)",
                     color: hovered ? "#ffffff" : "rgba(255,255,255,0.5)",
@@ -118,7 +106,7 @@ export default function Navbar() {
                 transition={{ duration: 1.1, ease: [0.16, 1, 0.3, 1], delay: 0.15 }}
             >
                 <div
-                    className="flex items-center justify-between px-4 sm:px-8 py-3 sm:py-4 rounded-[50px] border transition-all duration-700 w-[95%] max-w-none"
+                    className="flex items-center justify-between px-4 sm:px-7 py-2.5 sm:py-3.5 rounded-[50px] border transition-all duration-700 w-[83%] max-w-none"
                     style={glassStyle}
                 >
 
@@ -317,17 +305,10 @@ export default function Navbar() {
                                             borderBottom: "1px solid rgba(255,255,255,0.035)",
                                         }}
                                     >
-                                        <div className="flex items-center gap-4">
-                                            {/* Number */}
-                                            <span
-                                                className="text-[11px] text-luxury-gold/30 group-hover:text-luxury-gold/60 transition-colors duration-300"
-                                                style={{ fontFamily: "var(--font-cormorant)", fontStyle: "italic" }}
-                                            >
-                                                {link.num}
-                                            </span>
+                                        <div className="flex items-center">
                                             {/* Name */}
                                             <span
-                                                className="text-[15px] font-bold uppercase tracking-[0.25em] text-white/60 group-hover:text-white transition-colors duration-300"
+                                                className="text-[14px] font-bold uppercase tracking-[0.25em] text-white/60 group-hover:text-white transition-colors duration-300"
                                                 style={{ fontFamily: "var(--font-plus-jakarta)" }}
                                             >
                                                 {link.name}
