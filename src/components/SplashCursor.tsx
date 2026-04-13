@@ -54,6 +54,19 @@ type DoubleFBO = {
   swap: () => void;
 };
 
+type Pointer = {
+  id: number;
+  texcoordX: number;
+  texcoordY: number;
+  prevTexcoordX: number;
+  prevTexcoordY: number;
+  deltaX: number;
+  deltaY: number;
+  down: boolean;
+  moved: boolean;
+  color: RGB;
+};
+
 function SplashCursor({
   SIM_RESOLUTION = 128,
   DYE_RESOLUTION = 1440,
@@ -76,23 +89,24 @@ function SplashCursor({
   useEffect(() => {
     const canvas = canvasRef.current;
     if (!canvas) return;
+    const canvasEl = canvas;
 
     let isActive = true;
 
-    function pointerPrototype() {
-      this.id = -1;
-      this.texcoordX = 0;
-      this.texcoordY = 0;
-      this.prevTexcoordX = 0;
-      this.prevTexcoordY = 0;
-      this.deltaX = 0;
-      this.deltaY = 0;
-      this.down = false;
-      this.moved = false;
-      this.color = { r: 0, g: 0, b: 0 };
+    function createPointer(): Pointer {
+      return {
+        id: -1,
+        texcoordX: 0,
+        texcoordY: 0,
+        prevTexcoordX: 0,
+        prevTexcoordY: 0,
+        deltaX: 0,
+        deltaY: 0,
+        down: false,
+        moved: false,
+        color: { r: 0, g: 0, b: 0 },
+      };
     }
-
-    type Pointer = ReturnType<typeof pointerPrototype>;
 
     const config = {
       SIM_RESOLUTION,
@@ -112,7 +126,7 @@ function SplashCursor({
       TRANSPARENT,
     };
 
-    const pointers = [new (pointerPrototype as unknown as { new (): Pointer })()];
+    const pointers: Pointer[] = [createPointer()];
 
     const glContext = getWebGLContext(canvas);
     if (!glContext) return;
@@ -251,7 +265,7 @@ function SplashCursor({
     class Material {
       vertexShader: WebGLShader;
       fragmentShaderSource: string;
-      programs: Record<number, WebGLProgram>;
+      programs: Record<number, WebGLProgram | undefined>;
       activeProgram: WebGLProgram | null;
       uniforms: Record<string, WebGLUniformLocation | null>;
       constructor(vertexShader: WebGLShader, fragmentShaderSource: string) {
@@ -265,12 +279,13 @@ function SplashCursor({
         let hash = 0;
         for (let i = 0; i < keywords.length; i++) hash += hashCode(keywords[i]);
         let program = this.programs[hash];
-        if (program == null) {
+        if (!program) {
           const fragmentShader = compileShader(gl.FRAGMENT_SHADER, this.fragmentShaderSource, keywords);
           if (!fragmentShader) return;
-          program = createProgram(this.vertexShader, fragmentShader);
-          if (!program) return;
-          this.programs[hash] = program;
+          const createdProgram = createProgram(this.vertexShader, fragmentShader);
+          if (!createdProgram) return;
+          this.programs[hash] = createdProgram;
+          program = createdProgram;
         }
         if (program === this.activeProgram) return;
         this.uniforms = getUniforms(program);
@@ -841,11 +856,11 @@ function SplashCursor({
     }
 
     function resizeCanvas() {
-      const width = scaleByPixelRatio(canvas.clientWidth);
-      const height = scaleByPixelRatio(canvas.clientHeight);
-      if (canvas.width !== width || canvas.height !== height) {
-        canvas.width = width;
-        canvas.height = height;
+      const width = scaleByPixelRatio(canvasEl.clientWidth);
+      const height = scaleByPixelRatio(canvasEl.clientHeight);
+      if (canvasEl.width !== width || canvasEl.height !== height) {
+        canvasEl.width = width;
+        canvasEl.height = height;
         return true;
       }
       return false;
@@ -966,7 +981,7 @@ function SplashCursor({
     function splat(x: number, y: number, dx: number, dy: number, color: RGB) {
       splatProgram.bind();
       gl.uniform1i(splatProgram.uniforms.uTarget, velocity.read.attach(0));
-      gl.uniform1f(splatProgram.uniforms.aspectRatio, canvas.width / canvas.height);
+      gl.uniform1f(splatProgram.uniforms.aspectRatio, canvasEl.width / canvasEl.height);
       gl.uniform2f(splatProgram.uniforms.point, x, y);
       gl.uniform3f(splatProgram.uniforms.color, dx, dy, 0.0);
       gl.uniform1f(splatProgram.uniforms.radius, correctRadius(config.SPLAT_RADIUS / 100.0));
@@ -980,7 +995,7 @@ function SplashCursor({
     }
 
     function correctRadius(radius: number) {
-      let aspectRatio = canvas.width / canvas.height;
+      let aspectRatio = canvasEl.width / canvasEl.height;
       if (aspectRatio > 1) radius *= aspectRatio;
       return radius;
     }
@@ -989,8 +1004,8 @@ function SplashCursor({
       pointer.id = id;
       pointer.down = true;
       pointer.moved = false;
-      pointer.texcoordX = posX / canvas.width;
-      pointer.texcoordY = 1.0 - posY / canvas.height;
+      pointer.texcoordX = posX / canvasEl.width;
+      pointer.texcoordY = 1.0 - posY / canvasEl.height;
       pointer.prevTexcoordX = pointer.texcoordX;
       pointer.prevTexcoordY = pointer.texcoordY;
       pointer.deltaX = 0;
@@ -1001,8 +1016,8 @@ function SplashCursor({
     function updatePointerMoveData(pointer: Pointer, posX: number, posY: number, color: RGB) {
       pointer.prevTexcoordX = pointer.texcoordX;
       pointer.prevTexcoordY = pointer.texcoordY;
-      pointer.texcoordX = posX / canvas.width;
-      pointer.texcoordY = 1.0 - posY / canvas.height;
+      pointer.texcoordX = posX / canvasEl.width;
+      pointer.texcoordY = 1.0 - posY / canvasEl.height;
       pointer.deltaX = correctDeltaX(pointer.texcoordX - pointer.prevTexcoordX);
       pointer.deltaY = correctDeltaY(pointer.texcoordY - pointer.prevTexcoordY);
       pointer.moved = Math.abs(pointer.deltaX) > 0 || Math.abs(pointer.deltaY) > 0;
@@ -1014,13 +1029,13 @@ function SplashCursor({
     }
 
     function correctDeltaX(delta: number) {
-      const aspectRatio = canvas.width / canvas.height;
+      const aspectRatio = canvasEl.width / canvasEl.height;
       if (aspectRatio < 1) return delta * aspectRatio;
       return delta;
     }
 
     function correctDeltaY(delta: number) {
-      const aspectRatio = canvas.width / canvas.height;
+      const aspectRatio = canvasEl.width / canvasEl.height;
       if (aspectRatio > 1) return delta / aspectRatio;
       return delta;
     }
@@ -1196,7 +1211,7 @@ function SplashCursor({
       style={{
         position: "fixed",
         inset: 0,
-        zIndex: 40,
+        zIndex: 1,
         pointerEvents: "none",
         width: "100%",
         height: "100%",
