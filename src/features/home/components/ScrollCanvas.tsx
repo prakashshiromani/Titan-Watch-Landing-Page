@@ -163,7 +163,7 @@ export default function ScrollCanvas() {
     return (
         <div className="sticky top-0 left-0 w-full h-screen overflow-hidden z-0 bg-luxury-bg">
             {/* SVG Filter for sharpening low-res JPEG frames */}
-            <svg className="hidden" xmlns="http://www.w3.org/2000/svg" style={{ position: "absolute", width: 0, height: 0 }}>
+            <svg className="absolute invisible w-0 h-0 pointer-events-none" xmlns="http://www.w3.org/2000/svg">
                 <defs>
                     <filter id="sharpen-filter">
                         <feConvolveMatrix
