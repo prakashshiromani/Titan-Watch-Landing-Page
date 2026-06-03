@@ -54,6 +54,8 @@ export default function ScrollCanvas() {
         }
 
         ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+        ctx.imageSmoothingEnabled = true;
+        ctx.imageSmoothingQuality = "high";
         ctx.fillStyle = "#050505";
         ctx.fillRect(0, 0, displayWidth, displayHeight);
 
@@ -160,6 +162,23 @@ export default function ScrollCanvas() {
 
     return (
         <div className="sticky top-0 left-0 w-full h-screen overflow-hidden z-0 bg-luxury-bg">
+            {/* SVG Filter for sharpening low-res JPEG frames */}
+            <svg className="hidden" xmlns="http://www.w3.org/2000/svg" style={{ position: "absolute", width: 0, height: 0 }}>
+                <defs>
+                    <filter id="sharpen-filter">
+                        <feConvolveMatrix
+                            order="3"
+                            preserveAlpha="true"
+                            kernelMatrix="
+                                 0   -0.45    0
+                                -0.45  2.8   -0.45
+                                 0   -0.45    0
+                            "
+                        />
+                    </filter>
+                </defs>
+            </svg>
+
             {/* Canvas fades in from nothing — no loading screen */}
             <canvas
                 ref={canvasRef}
@@ -168,6 +187,7 @@ export default function ScrollCanvas() {
                     width: "100vw",
                     height: "100vh",
                     opacity: canvasReady ? 1 : 0,
+                    filter: "url(#sharpen-filter)",
                 }}
             />
 
