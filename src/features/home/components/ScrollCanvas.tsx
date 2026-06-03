@@ -8,7 +8,7 @@ const FRAME_COUNT = 240;
 const CRITICAL_FRAMES = 8;
 
 function frameSrc(i: number) {
-    return `/images/1/ezgif-frame-${i.toString().padStart(3, "0")}.jpg`;
+    return `/images/1/ezgif-frame-${i.toString().padStart(3, "0")}.webp`;
 }
 
 export default function ScrollCanvas() {
